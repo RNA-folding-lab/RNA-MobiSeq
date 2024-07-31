@@ -301,6 +301,13 @@ def row_normalize(matrix_data):
         for j in range(col):
             newdata[i][j] = (matrix_data[i][j]-Zmin[i])/(Zmax[i]-Zmin[i]+0.000001)
     return newdata
+def global_normalize(matrix_data):
+    # Flatten the matrix to find global min and max
+    global_max = np.nanmax(matrix_data)
+    global_min = np.nanmin(matrix_data)
+    # Apply normalization
+    normalized_data = (matrix_data - global_min) / (global_max - global_min + 1e-6)  # Added small epsilon to avoid division by zero
+    return normalized_data
 ## Processes the score matrix by replacing certain values, and normalizing.
 def plot_matrix_boxplot(matrix,name):
     matrix = np.array(matrix)
@@ -319,7 +326,8 @@ def Final_score(score_matrix, L, Out):
     # Replace values <= val or NaN with val_min
     score_matrix = np.where((score_matrix <= val) | (np.isnan(score_matrix)), val, score_matrix)
     # Normalize matrix
-    final_score = row_normalize(score_matrix)
+    #final_score = row_normalize(score_matrix)
+    final_score = global_normalize(score_matrix)
     with open(Out + 'final_score.txt', 'w') as f:
         for row in final_score:
             score_list = [f"{score:.2f}" for score in row]
