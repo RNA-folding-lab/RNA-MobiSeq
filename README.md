@@ -48,10 +48,11 @@ The RNA-MobiSeq pipeline is a method to predict the 3D structure of a target RNA
     * bash run.sh
     * '''
 
-
+*   demo/: an example of the xrRNA 2D & 3D structures inferred from the processed high-throughput sequencing data
+*   Multi_run/: a pipeline including CODA2, multi-MC simulations (e.g., 1000), and multi-BRiQ predictions (e.g., 1000 * top 5 of MC)
 ## References
 -------------
-1.  Zhang J, Kobert K, Flouri T, Stamatakis A. PEAR: a fast and accurate Illumina Paired-End reAd mergeR. Bioinformatics. 2014 Mar 1;30(5):614-20. doi: 10.1093/bioinformatics/btt593. 
-2.  Xiong P, Wu R, Zhan J, Zhou Y. Pairing a high-resolution statistical potential with a nucleobase-centric sampling algorithm for improving RNA model refinement. Nat Commun. 2021;12(1):2777. doi: 10.1038/s41467-021-23100-4
-3.  Zhang Z, Xiong P, Zhang T, Wang J, Zhan J, Zhou Y. Accurate inference of the full base-pairing structure of RNA by deep mutational scanning and covariation-induced deviation of activity. Nucleic Acids Res. 2020;48(3):1451-1465. doi: 10.1093/nar/gkz1192. 
-4.  Tang J, Shi Y, Zhang Z, Luo D, Zhan J, Zhou Y. RNA-MobiSeq: Deep mutational scanning and mobility-based selection for RNA structure inference. bioRxiv, 2024; doi: https://doi.org/10.1101/2024.02.21.581340
+1.  Tang J, Shi Y, Zhang Z, Luo D, Zhan J, Zhou Y. RNA-MobiSeq: Deep mutational scanning and mobility-based selection for RNA structure inference. bioRxiv, 2024; doi: https://doi.org/10.1101/2024.02.21.581340
+2.  Zhang J, Kobert K, Flouri T, Stamatakis A. PEAR: a fast and accurate Illumina Paired-End reAd mergeR. Bioinformatics. 2014 Mar 1;30(5):614-20. doi: 10.1093/bioinformatics/btt593. 
+3.  Xiong P, Wu R, Zhan J, Zhou Y. Pairing a high-resolution statistical potential with a nucleobase-centric sampling algorithm for improving RNA model refinement. Nat Commun. 2021;12(1):2777. doi: 10.1038/s41467-021-23100-4
+4.  Zhang Z, Xiong P, Zhang T, Wang J, Zhan J, Zhou Y. Accurate inference of the full base-pairing structure of RNA by deep mutational scanning and covariation-induced deviation of activity. Nucleic Acids Res. 2020;48(3):1451-1465. doi: 10.1093/nar/gkz1192. 
