@@ -21,7 +21,7 @@ import time
 t0 = time.time()
 #######hyper-parameter######
 wt = 0.76         # The ratio of MC energy
-U_lone_m = 1.0    # penalty of lone base pair
+U_lone_m = 0.8    # penalty of lone base pair
 U_AU_end_m = 0.8  # penalty of AU/GU at end
 ######### Read sequence ##########
 def read_seq(file):
@@ -106,6 +106,8 @@ def MC_SA(score_matrix,seq,high_T,low_T,alpha,step,Out):
     while T > low_T:
         TK = T + 273.15
         D = 0.002*TK 
+        if T <= 25.0:
+            MC_step = step * seqLen * 2
         #U_lone = max(U_lone_m - 0.008 * T, 0)
         #U_AU_end = max(U_AU_end_m - 0.008 * T, 0)
         #U_lone = U_lone_m / (1+exp(0.08*(T-50.0))) 
@@ -331,7 +333,7 @@ if __name__ == "__main__":
         help='The end low temperature in MC annealing')
     parser.add_argument('-a', '--alpha', type=float, default=0.88, 
         help='The annealing rate (0.8-1.0)')
-    parser.add_argument('-s', '--step', type=int, default=5000, 
+    parser.add_argument('-s', '--step', type=int, default=3000, 
         help='The step in each temperature in MC annealing (total_step = step * Len(seq))')
     parser.add_argument('-seed', '--seed', type=int, default=0, 
         help='The random seed in current simulation')
@@ -344,7 +346,7 @@ if __name__ == "__main__":
     seed = args.seed
     if args.seed:
         seed = args.seed
-        Outpath = args.out_path + '2D/' + seed + '/'
+        Outpath = args.out_path + '2D/' + str(seed) + '/'
     else:
         Outpath = args.out_path + '2D/'
     os.makedirs(Outpath, exist_ok=True)   ##mkdir Outpath
