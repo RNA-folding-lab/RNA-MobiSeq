@@ -144,7 +144,7 @@ def XY_dataset(data):
     en_mut2=encode_data(df['Mut2'])
     en_wt1=encode_data(df['wt1'])
     en_wt2=encode_data(df['wt2'])
-    X_temp=pd.concat([x_temp,en_mut1,en_mut2,en_wt2,en_wt2],axis=1)
+    X_temp=pd.concat([x_temp,en_mut1,en_mut2,en_wt1,en_wt2],axis=1)
     standard_data=MinMaxScaler().fit_transform(X_temp)
     X=pd.DataFrame(standard_data)
     return X,Y
