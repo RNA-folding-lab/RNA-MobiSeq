@@ -20,6 +20,8 @@ The RNA-MobiSeq pipeline is a method to predict the 3D structure of a target RNA
         The FASTX-Toolkit is a collection of command line tools for Short-Reads FASTA/FASTQ files preprocessing. Insall: [conda install fastx_toolkit]
     * d). BRiQ (https://github.com/Jian-Zhan/RNA-BRiQ) for 3D structure modeling.
 3.  Clone RNA-MobiSeq pipeline (git@github.com:RNA-folding-lab/RNA-MobiSeq.git)
+4.  The code has been tested on the following systems: macOS and Linux
+
 
 ## Usage
 -------------
