@@ -54,9 +54,9 @@ GSE276399 (http://www.ncbi.nlm.nih.gov/geo).
     * bash run.sh
     * '''
 * Note: For users who do not wish to process raw sequencing reads from FASTQ files, we provide processed mutant fitness files in the "mutant_fitness/" directory. These files were generated from the preprocessing pipeline and can serve as direct input for CODA2 analysis and downstream 2D/3D structure prediction. To use these processed files:
-    1). Place the corresponding mutant fitness file into the working directory.
-    2). Modify the input path in run.sh accordingly.
-    3). Run:
+    * 1). Place the corresponding mutant fitness file into the working directory.
+    * 2). Modify the input path in run.sh accordingly.
+    * 3). Run:
        *'''sh
        * bash run.sh
        *'''
