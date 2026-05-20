@@ -35,21 +35,31 @@ The RNA-MobiSeq pipeline is a method to predict the 3D structure of a target RNA
 	* g). High-Throughput Sequencing: Sequence both pre- and post-selection RNA sequences using high-throughput sequencing.
 
 1.  Put the high-throughput sequencing data of pre- and post-selection RNA (including forward_reads_file & reverse_reads_file) into "Metadata/" folder (e.g., 5TPY_pre_1.fastq, 5TPY_pre_2.fastq,5TPY_post_1.fastq,5TPY_post_1.fastq)
+    * The raw sequencing datasets generated in this study are deposited at the Gene Expression Omnibus (GEO):
+GSE276399 (http://www.ncbi.nlm.nih.gov/geo).
     * Put the RNA native sequence (e.g., 5TPY.fasta) into "native_data" folder
 
-2.  Preprocess the sequencing reads data
+3.  Preprocess the sequencing reads data
     * Open the preprocess_sequencing_reads.sh file, and change the name of RNA (as well as pre/post_forward/reverse_reads_file and target_pre/post), the seq_adapter3/5, and the fastx_path based on your case.
     * Run preprocess_sequencing_reads.sh
     * '''sh
     * bash preprocess_sequencing_reads.sh
     * '''
     * If the script runs successfully, you will find the xx.var.ra files in the Processed/ directory, which can be used for further base pairing inference.
-3.  Inferring base-pairing using CODA2 and predicting 2D & 3D structures using MC & RNA-BRiQ, respectively.
+    * Note: Due to the large size of the raw FASTQ files, they are not hosted directly in this GitHub repository. To facilitate reproducibility and rapid testing of the pipeline, we provide the processed mutant fitness files in the "mutant_fitness/" directory. These files can be directly used as input for CODA2 base-pair inference without repeating the sequencing preprocessing steps.
+
+4.  Inferring base-pairing using CODA2 and predicting 2D & 3D structures using MC & RNA-BRiQ, respectively.
     * Open run.sh file, and change the name of RNA, OUT_PATH, BRiQ_PATH, as well as the several hyperparameters (e.g., C, gamma, sd_cut)
     * '''sh
     * bash run.sh
     * '''
-
+* Note: For users who do not wish to process raw sequencing reads from FASTQ files, we provide processed mutant fitness files in the "mutant_fitness/" directory. These files were generated from the preprocessing pipeline and can serve as direct input for CODA2 analysis and downstream 2D/3D structure prediction. To use these processed files:
+    1). Place the corresponding mutant fitness file into the working directory.
+    2). Modify the input path in run.sh accordingly.
+    3). Run:
+       *'''sh
+       * bash run.sh
+       *'''
 *   demo/: an example of the xrRNA 2D & 3D structures inferred from the processed high-throughput sequencing data
 *   Multi_run/: a pipeline including CODA2, multi-MC simulations (e.g., 1000), and multi-BRiQ predictions (e.g., 1000 * top 5 of MC)
 ## References
